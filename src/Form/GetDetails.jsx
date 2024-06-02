@@ -11,7 +11,6 @@ const GetDetails = () => {
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
       } = useForm()
 
@@ -19,7 +18,17 @@ const GetDetails = () => {
       const initialDate = dayjs(defaultDate);
       const [selectedDate, setSelectedDate] = useState(initialDate);
 
-      const onSubmit = (data) => console.log(data,selectedDate.format('DD-MM-YYYY'))
+      const [photo, setPhoto] = useState();
+      const [signature, setSignature] = useState();
+
+      function addPhoto(e) {
+        setPhoto(URL.createObjectURL(e.target.files[0]));
+      }
+      function addSignature(e){
+        setSignature(URL.createObjectURL(e.target.files[0]));
+      }
+
+      const onSubmit = (data) => console.log(data,selectedDate.format('DD-MM-YYYY'),photo,signature)
 
         return (
             <div className='form-container'>
@@ -69,6 +78,14 @@ const GetDetails = () => {
                             <DatePicker value={selectedDate} onChange={(newDate)=> setSelectedDate(newDate)}/>
                         </DemoContainer>
                     </LocalizationProvider>
+                    <br/>
+
+                    <label >Add a Photo</label>
+                    <input type="file" onChange={addPhoto}/>
+                    <br/>
+
+                    <label >Add Signature</label>
+                    <input type="file" onChange={addSignature}/>
                     <br/>
 
                     <input type="submit" />
