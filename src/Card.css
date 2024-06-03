@@ -1,0 +1,135 @@
+/* Card.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.card-container {
+  perspective: 1000px;
+  width: 350px;
+  margin: 0 auto;
+}
+
+.card {
+  width: 100%;
+  height: 555px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-front {
+  background: linear-gradient(135deg, #ffffff, #eeeeee);
+  color: #8d4a4a;
+}
+
+.card-back {
+  background: linear-gradient(135deg, #ffffff, #eeeeee);
+  color: #333;
+  transform: rotateY(180deg);
+  color: #8d4a4a;
+}
+
+.card-header {
+  text-align: center;
+  background-color: transparent;
+  color: #333;
+}
+
+.card-header img {
+  max-width: 100px;
+  height: auto;
+}
+
+.company-logo {
+  width: 80px;
+  margin-bottom: 10px;
+
+}
+
+.employee-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
+  margin-bottom: 10px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.employee-name {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.employee-title {
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-top: -3px;
+}
+
+.person-details {
+  margin: 10px 0 0 20px;
+}
+
+.person-details p {
+  margin: 5px 0;
+}
+
+.employee-department, .employee-code, .employee-email, .employee-phone, .employee-dob, .employee-gender {
+  font-weight: 500;
+}
+
+.employee-signature {
+  width: 150px;
+  height: auto;
+  margin: 10px auto;
+  padding-bottom: 20px;
+}
+
+.card-back ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.card-back li {
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+.card-back h2 {
+  margin-bottom: 10px;
+}
+
+.barcode {
+  margin: 20px 0 0 30px;
+  width: 200px;
+  height: 100px;
+}
+
+.sub-title{
+  color: black;
+}
+
+.social{
+  color :   rgb(255, 90, 118);
+}

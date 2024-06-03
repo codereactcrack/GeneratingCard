@@ -6,6 +6,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import Card from '../Card';
 
 const GetDetails = () => {
     const {
@@ -28,12 +29,27 @@ const GetDetails = () => {
         setSignature(URL.createObjectURL(e.target.files[0]));
       }
 
-      const onSubmit = (data) => console.log(data,selectedDate.format('DD-MM-YYYY'),photo,signature)
+      const [employeeData, setEmployeeData] = useState(null);
+
+      const onSubmit = (data) => {
+        const employee = {
+          details: data,
+          dob: selectedDate.format('DD-MM-YYYY'),
+          photo: photo,
+          signature: signature,
+          employeeId: 'CRC001',
+          code:'001'
+        };
+        setEmployeeData(employee);
+      };
+
 
         return (
             <div className='form-container'>
+
+            {employeeData ? <Card employee={employeeData} /> :
+
                 <form onSubmit={handleSubmit(onSubmit)}>
-            
                     <label>First Name -</label>
                     <input type='text' id='firstName'{...register("firstName" ,{ required: true, maxLength: 20 })} />
                     {errors.firstName && <span>This field is required</span>}
@@ -90,6 +106,7 @@ const GetDetails = () => {
 
                     <input type="submit" />
                 </form>
+}
             </div>
         )
 }
